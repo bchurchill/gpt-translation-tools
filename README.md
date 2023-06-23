@@ -9,6 +9,7 @@ GPT-Translation-Tools is a command-line Python utility to help with translation 
     - [API Key](#api-key)
     - [Subcommands](#subcommands)
     - [Options](#options)
+    - [Templating](#templating)
 
 ## Installation
 
@@ -126,7 +127,7 @@ These options are specific to the translation task.
 - `--output-dir`: Output directory for the 'download-csv' subcommand. (Required for 'download-csv' subcommand)
 - `-u`, `--url`: URL to download for the 'download-url' subcommand. (Required for 'download-url' subcommand)
 
-### Templating Feature
+### Templating
 
 In `prompt-all`, `prompt-folder`, and `map-reduce` subcommands of
 GPT-Translation-Tools, you have the option to use a templating feature that
@@ -138,11 +139,22 @@ in the prompt.
 
 #### Available Variables for Templating
 
-**LEN**: Represents the word count of the input text.
-**NEAREST_EXAMPLE_IN**: Holds the input of the nearest example based on GPT embeddings. The Euclidean distance between the embeddings of the input text and the predefined example inputs determines the nearest example input.
-**NEAREST_EXAMPLE_OUT**: Contains the output corresponding to the nearest example input.
-**WORDLIST**: If the `--wordlist` parameter is supplied, this variable contains a list of preferred translations of words that appear in the input.
-**AUTHOR**: Extracts the author from the file name. If the file ID starts with "BH", it represents Baha'u'llah. If it starts with "AB", it represents Abdu'l-Baha.
+Enclose any of the following in braces `{}` in the prompt to substitute the value:
+
+ - **LEN**: Represents the word count of the input text.
+ - **NEAREST_EXAMPLE_IN**: Holds the input of the nearest example based on GPT embeddings. The Euclidean distance between the embeddings of the input text and the predefined example inputs determines the nearest example input.
+ - **NEAREST_EXAMPLE_OUT**: Contains the output corresponding to the nearest example input.
+ - **WORDLIST**: If the `--wordlist` parameter is supplied, this variable contains a list of preferred translations of words that appear in the input.
+ - **AUTHOR**: Extracts the author from the file name. If the file ID starts with "BH", it represents Baha'u'llah. If it starts with "AB", it represents Abdu'l-Baha.
+
+#### Expressions
+Additionally, you can use expressions within the curly braces. This is useful
+for performing operations like calculating the length of text or conditionally
+displaying content.
+
+For security, only a limited set of expressions are allowed. Specifically, you
+can use `min` and `max` functions, the variables provided, and standard
+arithmetic operators.
 
 #### Use Cases
 
