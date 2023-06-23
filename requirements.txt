@@ -2,3 +2,6 @@ tenacity
 openai
 aiofiles
 numpy
+tiktoken
+bs4
+
