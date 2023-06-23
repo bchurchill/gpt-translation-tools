@@ -6,6 +6,7 @@ GPT-Translation-Tools is a command-line Python utility to help with translation 
 
 - [Installation](#installation)
 - [Usage](#usage)
+    - [API Key](#api-key)
     - [Subcommands](#subcommands)
     - [Options](#options)
 
@@ -39,6 +40,10 @@ For example, the general structure of a command could be:
 ```
 ./tool.py <subcommand> [options]
 ```
+
+### API Key
+
+To provide your OpenAI API key to the system, set the environment variable `OPENAI_API_KEY`.  Note that for testing the code without GPT you can use `-m math`.  Instaed of invoking GPT we have a stub that will try and parse any input as a mathematical expression and compute it.
 
 ### Subcommands
 
