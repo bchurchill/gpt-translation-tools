@@ -6,9 +6,8 @@ GPT-Translation-Tools is a command-line Python utility to help with translation 
 
 - [Installation](#installation)
 - [Usage](#usage)
-    - [Prompt Subcommand](#prompt-subcommand)
-- [Contributing](#contributing)
-- [License](#license)
+    - [Subcommands](#subcommands)
+    - [Options](#options)
 
 ## Installation
 
